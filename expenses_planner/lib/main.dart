@@ -19,16 +19,20 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter App'),
       ),
-      body: Column(
-        children: <Widget>[
-          Card( color: Colors.amber[300],
-            child: Container(width: 100, child: Text('CHART!')),
-            elevation: 10,
-          ),
-          Card(
-            child: Text('List of txt'),
-          ),
-        ],
+      body: Container(width: 1000,color: Colors.greenAccent,
+        child: Column(
+          children: <Widget>[
+            Card(
+              color: Colors.amber[300],
+              child: Container(width: 100, child: Text('CHART!')),
+              elevation: 10,
+            ),
+            Card(
+              color:  Colors.deepOrangeAccent[300],
+              child: Container(width: 100, child: Text('List of txt')),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -36,18 +36,76 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Card(
-            color: Colors.amber[300],
+            color: Colors.blueAccent[200],
             child: Container(width: 200, child: Text('CHART!')),
             elevation: 10,
           ),
-          Card(
-            color: Colors.deepOrangeAccent[300],
-            child: Container(width: 200, child: Text('List of txt')),
-            elevation: 10,
+          Column(
+            children: transactions.map((tx) {
+              return Card(
+                  child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.blueAccent[200],
+                        width: 2,
+                      ),
+                    ),
+                    padding: EdgeInsets.all(5),
+                    child: Text(
+                      tx.amount.toString(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.purple,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 10,
+                        ),
+                        child: Text(
+                          tx.title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 5,
+                          horizontal: 10,
+                        ),
+                        child: Text(
+                          tx.date.toString(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ));
+            }).toList(),
           ),
         ],
       ),

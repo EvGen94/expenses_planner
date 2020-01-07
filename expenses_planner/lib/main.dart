@@ -10,7 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Expenses planner',
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+        
+      ),
       home: MyHomePage(),
     );
   }
@@ -23,18 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _usertransactions = [
-    Transaction(
-      id: 't1',
-      title: 'new_Game',
-      amount: 89.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Metro',
-      amount: 150,
-      date: DateTime.now(),
-    ),
+    
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
@@ -63,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Expenses planner'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
